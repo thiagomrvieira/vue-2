@@ -18,15 +18,16 @@
     
     <div id="root">
        
-        <button :title="title"> Hover over me</button>
+        <h2>All tasks</h2>
 
-        <h1 :class="className"> Binding class</h1>
+        <ul>
+            <li v-for="task in tasks"> {{ task.name }} </li>
+        </ul>
 
-        <button 
-            :class="{ 'is-loading': isLoading }"
-            @click="add"  
-            :disabled="disabled" 
-        > Hey yah</button>
+        <h2>Incomplete tasks</h2>
+        <ul>
+            <li v-for="task in incompleteTasks"> {{ task.name}} </li>
+        </ul>
 
     </div>
     
@@ -40,18 +41,23 @@
             el: '#root',
             
             data: {
-                title: 'Now the title is beeing set by vue',
-                className: 'color-red',
-                isLoading: false,
-                disabled: false,
+                tasks: [
+                    {name: 'Task 1', status: 'complete'},
+                    {name: 'Task 2', status: 'complete'},
+                    {name: 'Task 3', status: 'incomplete'},
+                    {name: 'Task 4', status: 'complete'},
+                    {name: 'Task 5', status: 'incomplete'},
+                    {name: 'Task 6', status: 'complete'},
+                ],
             },
 
-            methods: {
-                add() {
-                    this.isLoading = true;
-                    this.disabled = true;
+            computed: {
+                
+                incompleteTasks() {
+                    return this.tasks.filter(task => task.status === 'incomplete')
                 }
-            },
+
+            }
 
         });
         
