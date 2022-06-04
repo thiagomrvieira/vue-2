@@ -1,3 +1,34 @@
+Vue.component('message', {
+    template: `
+        <article 
+        class="message" 
+        v-show="isVisible">
+        
+            <div class="message-header">
+                {{ title}}
+
+                <button  @click="hideMessage">x</button>
+
+            </div>
+            <div class="message-body">
+                {{ body }}
+            </div>
+        </article>
+    `,
+    props: ['title', 'body'],
+    data() {
+        return {
+            isVisible : true,
+        }
+    },
+
+    methods: {
+        hideMessage() {
+            this.isVisible = false;
+        }
+    }
+})
+
 Vue.component('task-list', {
     template: `
         <ul> 
@@ -6,6 +37,7 @@ Vue.component('task-list', {
     `,
     data() {
         return {
+            hide : false,
             tasks: [
                 { name: 'Learn Vue' },
                 { name: 'Learn Vuex' },
