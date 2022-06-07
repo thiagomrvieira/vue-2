@@ -22,9 +22,27 @@
 
     <div id="root" class="container">
 
+        <modal 
+            v-if="showModal"
+            @close="showModal = false"
+        >
+            <p>
+                Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis.
+                In elementis mé pra quem é amistosis quis leo.Atirei o pau no gatis, per gatis num morreus.
+                Si num tem leite então bota uma pinga aí cumpadi!
+            </p>
+        </modal>
+        
+        <button 
+            @click="showModal = true"
+            class="button is-link is-outlined  mb-8">
+            Show modal
+        </button>
+
         <message 
             title="Modal 01"  
             body="this is a message 01"
+            class="mt-5"
             ></message>
        
         <message title="Modal 02" body="this is a message 02"></message>
