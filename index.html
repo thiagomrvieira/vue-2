@@ -13,8 +13,15 @@
 
     <div id="root" class="container">
 
-        <coupon ></coupon>
-        <h1 v-if="couponApplied">You used a coupon!</h1>
+        <modal>
+           <template slot="header">This is my title</template> 
+
+           This is the main content of my modal - It is the default slot
+
+           <template slot="footer">This is my footer</template> 
+
+        </modal>
+    
     </div>
     
     
