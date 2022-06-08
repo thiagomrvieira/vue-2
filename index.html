@@ -13,20 +13,8 @@
 
     <div id="root" class="container">
 
-        <tabs>
-            <tab name="About us" :selected="true">
-                <h1>Here is the About us tab</h1>
-            </tab>
-
-            <tab name="About our Culture">
-                <h1>Here is the About our Culture tab</h1>
-            </tab>
-
-            <tab name="About our Vision">
-                <h1>Here is the About our Vision tab</h1>
-            </tab>
-        </tabs>
-
+        <coupon @applied="onCouponApplied"></coupon>
+        <h1 v-if="couponApplied">You used a coupon!</h1>
     </div>
     
     
