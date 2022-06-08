@@ -13,14 +13,11 @@
 
     <div id="root" class="container">
 
-        <modal>
-           <template slot="header">This is my title</template> 
-
-           This is the main content of my modal - It is the default slot
-
-           <template slot="footer">This is my footer</template> 
-
-        </modal>
+        <progress-view inline-template>
+            <div>
+                Your progress: <span>{{ completionRate }}%</span>
+            </div>
+        </progress-view>
     
     </div>
     
